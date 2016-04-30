@@ -1,0 +1,37 @@
+{
+  "Help": {
+    "CONTENT": "Use this small help content to get started with your own congruent project.",
+    "CONGRUENCE": "A state of agreement by coming together. The Latin root 'congruo' means 'I meet together, I agree'.",
+    "PROCESS": {
+      "Congruent": "A collaborative review process to promote interpretitive guidance for cybersecurity rules to maintain standards of quality, improve performance, and promote oringinal intent.",
+      "url": "https://github.com/chaffin/Jargon/blob/master/congruent.md"
+    },
+    "FRAMEWORK": {
+      "Jargon": "A technical framework that enables authors to write more concise sentences and phrases for their works.",
+      "url": "https://github.com/chaffin/Jargon"
+    },
+    "FORMAT": {
+      "JSON": "JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. ",
+      "url": "http://json.org/"
+    },
+    "EDITOR": {
+      "JSON": "Jargon is plain text written in JSON format. This help file and below template is written in JSON using the online web-based tool, JSON editor",
+      "url": "http://jsoneditoronline.org/"
+    },
+    "TOOLS": {
+      "Analysis": "Documents must be analyzed, collaborated and revised during the Congruent process. There are many different tools, such as Diffchecker and PrettyDiff, that can be used to analyze and compare draft.json to review.json, and review.json to congruent.json. This collaboration process is left to the Congruent authors and reviewers as to what method they choose to compare their files.",
+      "DiffChecker": {
+        "tool": "An online diff tool to compare text differences between two text files.",
+        "url": "https://www.diffchecker.com/"
+      },
+      "Mergely": {
+        "tool": "Mergely is google chrome-extension diff/merge editor and javascript library that highlights changes in similar texts.",
+        "url": "chrome://apps/"
+      },
+      "PrettyDiff": {
+        "tool": "An online tool that is capable of source code beautification, minification, and comparison of two pieces of input text.",
+        "url": "http://prettydiff.com/"
+      }
+    }
+  }
+}

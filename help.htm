@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<head>
+<title>Congruent Specification Help</title>
+<meta name="topic" content="Congruent schema">
+<meta name="description" content="The Congruent process follows a json object schema with minimum rules that are easy to follow and remember.">
+<meta name="author" content="Larry Chaffin">
+<meta name="date" content="April 23, 2016">
+<style>
+body{font:16px/24px sans-serif;color:#000;background-color:#fff;margin:2em auto;padding:0 1em}a{text-decoration:none;color:blue}a:hover{text-decoration:underline;color:#369}h1,h2,h3,p,ul,ol{margin:0 0 10px;padding:0}h1,h2,i{font-family:Calibri, Georgia, "Times New Roman", serif;font-weight:400}h1,caption{font-size:1.3em}h2{text-indent:.25in;font-size:1.2em;font-style:italic}h3{font:1.3em arial;}h4{font:1.2em  serif;}i{font-size:1.2em;font-style:italic}ul{list-style-type:none}li{margin:0 0 5px 35px;padding:0}li:before{margin-right:.5rem;content:'\2245';color:tomato}pre,code{font-family:Consolas, Monaco, "Courier New", monospace}label{cursor:pointer}hr{margin:0 0 1em}p#header {font-size:1.2em;text-transform:uppercase;letter-spacing:.2em}p#indent{margin:1em .5in}pre{border:1px solid #999;border-radius:15px;background-color:#eee;margin:1em .5in;padding:1em}table{border-collapse:collapse;width:auto;margin:2rem}td {border:1px solid #333;}th{padding:3px 9px;background-color:#333;color:#fff;border-color:#fff;border-bottom:1px solid #333;border-radius:20px} td.l{text-align:left;}td.c{text-align:center;}td.r{text-align:right;}td{font-size:.9rem;padding:3px;}.page{margin-left:20rem;max-width:48rem}tr.red{background-color:#fee}tr.grn{background-color:#efe}tr.yel{background-color:#ffe}
+</style>
+</head>
+<body>
+<div style="position:fixed;left:0;top:0;padding:.5em 1em 0  1em;width:18rem;color:#333;">
+<p id="header"><span style="color:tomato">&cong;</span> C O N G R U E N T</p>
+
+<hr noshade="noshade" size="1" />
+<h2>Help</h2>
+<ul>
+<li><code><a href="#about">About</a></code></li>
+<li><code><a href="#impatient">Quick Start</a></code></li>
+<li><code><a href="#property">Schema Properties</a></code></li>
+</ul>
+
+<h2>Schemas</h2>
+<ul>
+<li><code><a href="#metadata">Metadata</a></code></li>
+<li><code><a href="#drc">Draft, Review, Congruent</a></code></li>
+<li><code><a href="#congruence">Congruence</a></code></li>
+<li><code><a href="#references">References</a></code></li>
+<li><code><a href="#introduction">Introduction</a></code></li>
+<li><code><a href="#article">Article</a></code></li>
+</ul>
+
+</div>
+<a id="about"></a>
+<div class="page">
+<h3>About</h3>
+<p>InfoBox will help you remember because it only requires you to know a little bit of the information. This information is normally referred to as <strong><em>tags</em></strong> or <strong><em>keywords</em></strong>. Just type in <strong>find</strong> and your <strong>keyword</strong>, and presto InfoBox will return all matches.</p>
+
+<a id="impatient"></a>
+<hr noshade="noshade" size="1" />
+<h3>For the impatient</h3>
+<p>There are six InfoBox commands.</p>
+
+<a id="property"></a>
+<hr noshade="noshade" size="1" />
+<h3>Schema Properties</h3>
+
+<h4>Property</h4>
+
+
+<h4>Type</h4>
+
+<h4>Count</h4>
+<p>The count column indicates how many times each property is permitted within a single instance of the parent element. Each <strong><em>Count</strong></em> is expressed as either a single vale or range of values. If the <strong><em>Count</strong></em> entry for a property includes the value <strong>0</strong>, the property is <em>optional</em>, otherwise the property is <em>required</em>. If the count entry for a property included the value <strong><em>n</strong></em>, the property may be used <em>more than one time</em>.</p>
+
+<ul>
+<li>1: the property shall be used once</li>
+<li>1-n: the property shall be used at least once and may be used more than once</li>
+<li>0-1: the property is optional and may be used at most once</li>
+<li>0-n: the property is optional and may be used more than once</li>
+</ul>
+
+<h4>Description</h4>
+<a id="metadata"></a>
+<table>
+<caption>Metadata</caption>
+<colgroup>
+<col span="3" style="width:auto;">
+<col style="width:70%">
+</colgroup>
+<tr><th>Property</th><th>Type</th><th>Count</th><th>Description</th></tr>
+<tr class="yel"><td>Metadata</td><td class="c">object</td><td class="c">1</td><td>An <i>object</i> property that contains <i>Congruent</i> <code>metadata</code> as well as the <i>objects</i> <span style="font-size:130%;color:tomato">&#187;</span> <strong>Draft</strong>, <strong>Review</strong>, <strong>Congruent,</strong> and <strong>Congruence</strong>.</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;UID</td><td class="c">value</td><td class="c">1</td><td>A <i>value</i> property the containing a <i><strong>null</strong></i> value by default. A <i>json</i> file formated with the <i>Congruent-Formatter.html</i> with a <i>null</i> will be given a date value copy and paste into the <i>json</i> file. This date value specifies the number of milliseconds since January 1, 1970, 00:00:00, and is used as an Unique Identifier (UID) for the <i>json</i> file.</td></tr>
+<tr class="red"><td>&nbsp;&nbsp;&nbsp;&nbsp;status</td><td class="c">string</td><td class="c">1</td><td>A restrictive options <i>string</i> that can only contain one of the values <span style="font-size:130%;color:tomato">&#187;</span> <strong>Draft</strong>, <strong>Review</strong>, <strong>Congruent,</strong> and/or <strong>Congruence</strong></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;topic</td><td class="c">string</td><td class="c">1</td><td>Simple <code>text</code> <i>string</i> used in the <code><strong>HTML</strong></code> <code>&lt;meta&gt;</code> tag.</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;category</td><td class="c">string</td><td class="c">1</td><td>Simple <code>text</code> <i>string</i> used in the <code><strong>HTML</strong></code> <code>&lt;meta&gt;</code> tag.</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;keywords</td><td class="c">string</td><td class="c">1</td><td>Simple <i>comma</i> separated <code>text</code> <i>string</i> used in the <code><strong>HTML</strong></code> <code>&lt;meta&gt;</code> tag.</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;description</td><td class="c">string</td><td class="c">1</td><td>Simple <code>text</code> <i>string</i> used in the <code><strong>HTML</strong></code> <code>&lt;meta&gt;</code> tag.</td></tr>
+</table>
+
+<pre>
+{
+ "Metadata": {
+  "UID": null,
+  "status": "String",
+  "topic": "string",
+  "category": "string",
+  "keywords": "string",
+  "description": "string",
+ }
+}
+</pre>
+<a id="drc"></a>
+<table>
+<caption>Draft, Review, Congruent</caption>
+<colgroup>
+<col span="3" style="width:auto;">
+<col style="width:70%">
+</colgroup>
+<tr><th>Property</th><th>Type</th><th>Count</th><th>Description</th></tr>
+<tr class="yel"><td>Draft</td><td class="c">object</td><td class="c">1</td><td>An <i>object</i> property that contains <i>Congruent</i> <code>metadata</code> <i>object</i> <span style="font-size:130%;color:tomato">&#187;</span> <strong>Author</strong> and <i>string</i> <strong>date</strong>.</td></tr>
+<tr class="yel"><td>Review</td><td class="c">object</td><td class="c">1</td><td>An <i>object</i> property that contains <i>Congruent</i> <code>metadata</code> <i>object</i> <span style="font-size:130%;color:tomato">&#187;</span> <strong>Author</strong> and <i>string</i> <strong>date</strong>.</td></tr>
+<tr class="yel"><td>Congruent</td><td class="c">object</td><td class="c">1</td><td>An <i>object</i> property that contains <i>Congruent</i> <code>metadata</code> <i>object</i> <span style="font-size:130%;color:tomato">&#187;</span> <strong>Author</strong> and <i>string</i> <strong>date</strong>.</td></tr>
+<tr class="red"><td>&nbsp;&nbsp;&nbsp;&nbsp;date</td><td class="c">string</td><td class="c">1</td><td>A non-restrictive date <i>string</i> used within the <code>metadata</code> &lt;meta&gt; <i>review-date</i> and <i>congruent-date</i> as well as the document <strong>header</strong> and professional <strong>cards</strong>.<br>The long date format <code><strong>Month DD, YYYY</strong></code> is perferred.</td></tr>
+<tr class="yel"><td>&nbsp;&nbsp;&nbsp;&nbsp;Author</td><td class="c">object</td><td class="c">1</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name</td><td class="c">string</td><td class="c">1</td><td>A simple <code>text</code> <i>string</i> that is formatted per the author's discretion and may include honorary titles and certificate acronyms. The perferred format is one that would look good on a printed certificate or business card.</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title</td><td class="c">string</td><td class="c">1</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;industry</td><td class="c">string</td><td class="c">1</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;social</td><td class="c">string</td><td class="c">1</td><td></td></tr>
+</table>
+<h2>Object {Draft}</h2>
+<pre>
+{
+ "Draft": {
+   "date": "string",
+   "Author": {
+   "name": "string",
+   "title": "string",
+   "industry": "string",
+   "social": "string"
+  }
+ }
+}
+</pre>
+<h2>Object {Review}</h2>
+<pre>
+{
+ "Review": {
+   "date": "string",
+   "Author": {
+   "name": "string",
+   "title": "string",
+   "industry": "string",
+   "social": "string"
+  }
+ }
+}
+</pre>
+<h2>Object {Congruent}</h2>
+<pre>
+{
+ "Congruent": {
+   "date": "string",
+   "Author": {
+   "name": "string",
+   "title": "string",
+   "industry": "string",
+   "social": "string"
+  }
+ }
+}
+</pre>
+<a id="congruence"></a>
+<table>
+<caption>Congruence</caption>
+<colgroup>
+<col span="3" style="width:auto;">
+<col style="width:70%">
+</colgroup>
+<tr><th>Property</th><th>Type</th><th>Count</th><th>Description</th></tr>
+<tr class="yel"><td>Congruence</td><td class="c">array</td><td class="c">0-n</td><td>An optional property <i>array</i> that may contain <strong>0</strong> or more elements.</td></tr>
+<tr class="red"><td>&nbsp;&nbsp;&nbsp;&nbsp;date</td><td class="c">string</td><td class="c">0-1</td><td>A non-restrictive date <i>string</i> displayed with the professional card. The long date format <code><strong>Month DD, YYYY</strong></code> is perferred.</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;name</td><td class="c">string</td><td class="c">0-1</td><td>A simple <code>text</code> <i>string</i> that is formatted per the author's discretion and may include honorary titles and certificate acronyms. The perferred format is one that would look good on a printed certificate or business card.</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;title</td><td class="c">string</td><td class="c">0-1</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;industry</td><td class="c">string</td><td class="c">0-1</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;social</td><td class="c">string</td><td class="c">0-1</td><td></td></tr>
+</table>
+<h2>Array [Congruence]</h2>
+<pre>
+{
+ "Congruence": [
+  {
+   "date": "string",
+   "name": "string",
+   "title": "string",
+   "industry": "string",
+   "social": "string"
+  }
+ ]
+}
+</pre>
+<a id="references"></a>
+<table>
+<caption>References</caption>
+<colgroup>
+<col span="3" style="width:auto;">
+<col style="width:70%">
+</colgroup>
+<tr><th>Property</th><th>Type</th><th>Count</th><th>Description</th></tr>
+<tr class="yel"><td>Reference</td><td class="c">array</td><td class="c">1-n</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;attribution</td><td class="c">string</td><td class="c">1</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;source</td><td class="c">string</td><td class="c">1</td><td></td></tr>
+</table>
+<a id="introduction"></a>
+<table>
+<caption>Introduction</caption>
+<colgroup>
+<col span="3" style="width:auto;">
+<col style="width:70%">
+</colgroup>
+<tr><th>Property</th><th>Type</th><th>Count</th><th>Description</th></tr>
+<tr class="yel"><td class="l">Introduction</td><td class="c">array</td><td class="c">1-n</td><td></td></tr>
+</table>
+<a id="article"></a>
+<table>
+<caption>Article</caption>
+<colgroup>
+<col span="3" style="width:auto;">
+<col style="width:70%">
+</colgroup>
+<tr><th>Property</th><th>Type</th><th>Count</th><th>Description</th></tr>
+<tr class="yel"><td class="l">Article</td><td class="c">array</td><td class="c">1-n</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;heading</td><td class="c">string</td><td class="c">0-1</td><td></td></tr>
+<tr class="yel"><td>&nbsp;&nbsp;&nbsp;&nbsp;Para</td><td class="c">array</td><td class="c">0-n</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rule</td><td class="c">string</td><td class="c">1</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jargon</td><td class="c">string</td><td class="c">1</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;note</td><td class="c">string</td><td class="c">0-1</td><td></td></tr>
+</table>
+<pre>
+{
+ "Article": [
+ {
+  "heading": "string",
+  "Para": [
+   "string"
+  ]
+ },
+  {
+   "rule": "string",
+   "jargon": "string",
+   "note": "string"
+  }
+ ]
+}
+</pre>
+<hr noshade="noshade" size="1" />
+<h2>Schema</h2>
+<pre>
+{
+  "Metadata": {
+    "UID": null,
+    "status": "String",
+    "topic": "string",
+    "category": "string",
+    "keywords": "string",
+    "description": "string",
+    "Draft": {
+      "date": "string",
+      "Author": {
+        "name": "string",
+        "title": "string",
+        "industry": "string",
+        "social": "string"
+      }
+    },
+    "Review": {
+      "date": "string",
+      "Author": {
+        "name": "string",
+        "title": "string",
+        "industry": "string",
+        "social": "string"
+      }
+    },
+    "Congruent": {
+      "date": "string",
+      "Author": {
+        "name": "string",
+        "title": "string",
+        "industry": "string",
+        "social": "string"
+      }
+    },
+    "Congruence": [
+      {
+        "date": "string",
+        "name": "string",
+        "title": "string",
+        "industry": "string",
+        "social": "string"
+      }
+    ]
+  },
+  "References": [
+    {
+      "attribution": "string",
+      "source": "string"
+    },
+    {
+      "attribution": "string",
+      "source": "string"
+    }
+  ],
+  "Introduction": [
+    "string"
+  ],
+  "Article": [
+    {
+      "heading": "string",
+      "Para": [
+        "string"
+      ]
+    },
+    {
+      "rule": "string",
+      "jargon": "string",
+      "note": "string"
+    }
+  ]
+}
+</pre>
+
+</div>
+<div style="position:fixed;left:0px;bottom:0px;padding:.5rem;width:100%;font:1rem serif;background:#333"><p style="text-align:center;color:#fff">Congruent <span style="color:tomato";>&cong;</span> 2016: A state of agreement by coming together. The Latin root 'congruo' means 'I meet together, I agree'.</p></div>
+</body>
+</html>
+
