@@ -14,7 +14,15 @@ document.getElementById("head").innerHTML = "<title>Congruent Formatter<head></t
 document.write("<div id=\"page\"><p><h1>Format Congruent File</h1><b>File:</b> " + (json.Metadata.topic) + "<br><b>Date:</b> " + (json.Metadata.Draft.date) + "</p><p><b>Description</b><br> " + (json.Metadata.description) + "</p>");
 document.write("<textarea rows=\"24\" cols=\"120\" wrap=\"soft\">");
 //  metadata
-    document.write("<!DOCTYPE html>\n<html>\n<head>\n<title>" + (json.Metadata.topic) + "</title>\n<meta name=\"UID\" content=\"" + (json.Metadata.UID) + "\">\n<meta name=\"topic\" content=\"" + (json.Metadata.topic) + "\">\n<meta name=\"category\" content=\"" + (json.Metadata.category) + "\">\n<meta name=\"description\" content=\"" + (json.Metadata.description) + "\">\n<meta name=\"keywords\" content=\"" + (json.Metadata.keywords) + "\">\n<meta name=\"author\" content=\"" + (json.Metadata.Draft.Author.name) + "\">\n<meta name=\"reviewer\" content=\"" + (json.Metadata.Review.Author.name) + "\">\n<meta name=\"review-date\" content=\"" + (json.Metadata.Review.date) + "\">\n<meta name=\"congruent\" content=\"" + (json.Metadata.Congruent.Author.name) + "\">\n<meta name=\"congruent-date\" content=\"" + (json.Metadata.Congruent.date) + "\">\n<meta name=\"status\" content=\"" + (json.Metadata.status) + "\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<link rel=\"stylesheet\" href=\"congruent.css\">\n<script src=\"http://code.jquery.com/jquery-1.12.2.min.js\"></script>\n<script src=\"congruent.js\"></script>\n</head>\n<body>\n<nav id=\"slide-menu\">\n<ul>\n<li class=\"abstract\"><a href=\"#abstract\">Abstract</a></li>\n<li class=\"section\"><a href=\"#introduction\">Introduction</a></li>\n<li class=\"disclaimer\"><a href=\"#disclaimer\">Disclaimer</a></li>\n<li class=\"copyright\"><a href=\"#copyright\">Copyright</a></li>\n<li class=\"references\"><a href=\"#references\">References</a></li>\n<li class=\"congruence\"><a href=\"#notes\">Notes</a></li>\n<li class=\"sep congruent\"><a href=\"#congruence\">Congruence</a></li>\n<li class=\"jargon-ico\"><a href=\"#jargon\">Jargon</a></li>\n<li class=\"sep\"></li>\n</ul>\n<div id=\"quote\"></div>\n<footer>\n<p>&amp;cong; CONGRUENT &amp;copy;2016 &amp;middot; Larry Chaffin</p>\n</footer>\n</nav>\n<a id=\"top\"></a>\n<div id=\"content\">\n<div class=\"menu-trigger\"  onclick=\"myFunction()\"></div>\n<div class=\"closeall\"></div>\n<div class=\"expand\"></div>\n<div class=\"page\">\n<p id=\"col8\">&amp;cong; " + (json.Metadata.status) + "<br>\n" + (json.Metadata.Draft.date) + "</p>\n<p class=\"title\">" + (json.Metadata.topic) + "</p>\n<a id=\"abstract\"></a>\n<p class=\"head\">Abstract</p>\n");
+    document.write("<!DOCTYPE html>\n<html>\n<head>\n<title>" + (json.Metadata.topic) + "</title>\n<meta name=\"UID\" content=\"" + (json.Metadata.UID) + "\">\n<meta name=\"topic\" content=\"" + (json.Metadata.topic) + "\">\n<meta name=\"category\" content=\"" + (json.Metadata.category) + "\">\n<meta name=\"description\" content=\"" + (json.Metadata.description) + "\">\n<meta name=\"keywords\" content=\"" + (json.Metadata.keywords) + "\">\n<meta name=\"author\" content=\"" + (json.Metadata.Draft.Author.name) + "\">\n<meta name=\"reviewer\" content=\"" + (json.Metadata.Review.Author.name) + "\">\n<meta name=\"review-date\" content=\"" + (json.Metadata.Review.date) + "\">\n<meta name=\"congruent\" content=\"" + (json.Metadata.Congruent.Author.name) + "\">\n<meta name=\"congruent-date\" content=\"" + (json.Metadata.Congruent.date) + "\">\n<meta name=\"status\" content=\"" + (json.Metadata.status) + "\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<link rel=\"stylesheet\" href=\"congruent.css\">\n<script src=\"http://code.jquery.com/jquery-1.12.2.min.js\"></script>\n<script src=\"congruent.js\"></script>\n</head>\n<body>\n");
+// nav
+document.write("<nav id=\"slide-menu\">\n<ul>\n<li class=\"abstract\"><a href=\"#abstract\">Abstract</a></li>\n");
+for (i in json.Article) {
+  if (json.Article[i].heading) {
+    document.write("<li class=\"section\"><a href=\"#" + (json.Article[i].heading.toLowerCase().replace(/( )/g, "_")) + "\">" + (json.Article[i].heading) + "</a></li>\n");
+ }
+}
+document.write("<li class=\"disclaimer\"><a href=\"#disclaimer\">Disclaimer</a></li>\n<li class=\"copyright\"><a href=\"#copyright\">Copyright</a></li>\n<li class=\"references\"><a href=\"#references\">References</a></li>\n<li class=\"congruence\"><a href=\"#notes\">Notes</a></li>\n<li class=\"sep congruent\"><a href=\"#congruence\">Congruence</a></li>\n<li class=\"jargon-ico\"><a href=\"#jargon\">Jargon</a></li>\n<li class=\"sep\"></li>\n</ul>\n<div id=\"quote\"></div>\n<footer>\n<p>&amp;cong; CONGRUENT &amp;copy;2016 &amp;middot; Larry Chaffin</p>\n</footer>\n</nav>\n<a id=\"top\"></a>\n<div id=\"content\">\n<div class=\"menu-trigger\"  onclick=\"myFunction()\"></div>\n<div class=\"closeall\"></div>\n<div class=\"expand\"></div>\n<div class=\"page\">\n<p id=\"col8\">&amp;cong; " + (json.Metadata.status) + "<br>\n" + (json.Metadata.Draft.date) + "</p>\n<p class=\"title\">" + (json.Metadata.topic) + "</p>\n<a id=\"abstract\"></a>\n<p class=\"head\">Abstract</p>\n");
 // abstract
 var s = json.Metadata.status;
 for (i in Congruent.Abstract[s]) {
@@ -28,15 +36,10 @@ for (i in json.References) {
   document.write("<a href=\"#"+ (alpha[i]) +"\">("+ (alpha[i]) +") " + (json.References[i].attribution) + "</a><br>\n");
   r.push("(" + (alpha[i]) + ")  " + (json.References[i].attribution) + " " + (json.References[i].source));
 }
-// introduction
-  document.write("<a id=\"introduction\"></a>\n<p class=\"head\">Introduction</p>\n");
-for (i in json.Introduction) {
-  document.write("<p class=\"para\">" + (json.Introduction[i]) + "</p>\n");
-}
 // congruent article
 for (i in json.Article) {
   if (json.Article[i].heading) {
-    document.write("<p class=\"head\">" + (json.Article[i].heading) + "</p>\n");
+    document.write("<a id=\"" + (json.Article[i].heading.toLowerCase().replace(/( )/g, "_")) + "\"></a><p class=\"head\">" + (json.Article[i].heading) + "</p>\n");
       for (k in json.Article[i].Para) {
         document.write("<p class=\"para\">" + (json.Article[i].Para[k]) + "</p>\n");
       }
@@ -78,8 +81,8 @@ for (i in json.References) {
     }
   }
 // congruence
- document.write("</div><div class=\"references\">\n<p class=\"title\"><a id=\"congruence\">Congruence</a></p>\n<div class=\"card\">\n<p id=\"col8\" style=\"margin-top:-1rem;\">" + (json.Metadata.UID) + "</p>\n<p id=\"col8\" style=\"margin-top:-1rem;\">Congruent Draft<br>" + (json.Metadata.Draft.date) + "</p>\n<p id=\"col6\">" + (json.Metadata.Draft.Author.name) + "</p>\n<hr>\n<p>" + (json.Metadata.Draft.Author.industry) + "<br>" + (json.Metadata.Draft.Author.title) + "<br>" + (json.Metadata.Draft.Author.social) + "</p>\n\n</div>");
- document.write("</div><div class=\"references\">\n<p class=\"title\"><a id=\"jargon\"><span id=\"jargon-logo\">Jargon Rules</span></a></p>\n");
+ document.write("</div><div class=\"references\">\n<p class=\"title\"><a id=\"congruence\">Congruence</a></p>\n<div class=\"card\">\n<p id=\"col8\" style=\"margin-top:-1rem;\">" + (json.Metadata.UID) + "</p>\n<p id=\"col8\" style=\"margin-top:-1rem;\">Congruent Draft<br>" + (json.Metadata.Draft.date) + "</p>\n<p id=\"col6\">" + (json.Metadata.Draft.Author.name) + "</p>\n<hr>\n<p>" + (json.Metadata.Draft.Author.industry) + "<br>" + (json.Metadata.Draft.Author.title) + "<br>" + (json.Metadata.Draft.Author.social) + "</p>\n</div>\n");
+ document.write("</div>\n<div class=\"references\">\n<p class=\"title\"><a id=\"jargon\"><span id=\"jargon-logo\">Jargon Rules</span></a></p>\n");
 for (i in jargon) {
   document.write("<p id=\"col0\" class=\"rule\">" + (jargon[i].rule) + "</p><p id=\"col1\" class=\"jargon\">" + (jargon[i].jargon.replace(/\[/g, "[<code>").replace(/\]/g, "</code>]")) + "</p>\n");
 }

@@ -139,7 +139,6 @@ div.references {
 }
 
 .note {
-  text-indent: -2rem;
   line-height:initial;
 }
 
@@ -325,8 +324,7 @@ nav#slide-menu > ul {
 }
 
 div#quote {
-  position:absolute;
-  bottom:3rem;
+  position:relative;
 }
 
 div#quote h4 {
