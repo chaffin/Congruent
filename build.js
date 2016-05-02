@@ -47,7 +47,7 @@ for (i in json.Article) {
 // jargon and notes
 if (json.Article[i].rule) {
  document.write("<p class=\"rule\">" + (json.Article[i].rule) + "</p>\n");
- document.write("<p class=\"jargon\"><span class=\"jargon-tag\">Jargon</span>" + (json.Article[i].jargon.replace(/\[/g, "[<jar>").replace(/\]/g, "</jar>]")));
+ document.write("<p class=\"jargon\">" + (json.Article[i].jargon.replace(/\[/g, "[<jar>").replace(/\]/g, "</jar>]")));
   if (json.Article[i].note) {
    var x = y + 1;
    document.write("<sup><a id=\"" + (x) + "\" href=\"#id" + (x) + "\">" + (x) + "</a></sup>");

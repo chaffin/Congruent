@@ -63,7 +63,17 @@
    font-size: 120%
   }
 }
+body {
+  margin: 0;
+  background: #2f3037;
+  color: #353d46;
+  font: 16px/24px verdana, sans-serif
+}
 
+h1,h2,h3 {
+  color: #FF6B6B;
+  margin: 0 0 27px
+}
 .jargon, .para, .rule {
   display: block
 }
@@ -72,7 +82,7 @@
   text-align: right
 }
 
-#jargon-logo::before,.jargon::before,span.jargon-tag:before {
+#jargon-logo::before,.jargon::before {
   content: "\2261\2009";
   color: tomato
 }
@@ -97,14 +107,6 @@ span.note:before {
 
 #col8 {
   margin-right: 0
-}
-
-span.jargon-tag {
-  font-family: 'Libre Baskerville', serif;
-  color: #333;
-  font-size:.88em;
-  float: right;
-  margin: -2rem auto
 }
 
 p.jargon {
@@ -234,67 +236,6 @@ div.card > hr:after {
     color:tomato;
     background: white;
     border:1px solid #333
-}
-
-@media only screen and (max-device-width:1024px) {
-  body {
-    max-width: initial
-  }
-
-  div {
-    margin: 0
-  }
-}
-
-@media print {
-  body div#content, body div.page {
-    all: initial;
-}
-
-div.page, p.head, p.rule, p.jargon {
-    font: 1em/1.125em serif;
-  }
-
-p.jargon {
-    color:initial;
-    background-color:initial;
-    border:none
-}
-
-p.jargon jar {
-    border-bottom:none
-}    
-  body nav#slide-menu, div.menu-trigger, div.closeall, div.expand, p.jargon span.jargon-tag {
-    display:none
-}
-
-div.card {
-    box-shadow:initial
-}
-
-div.card p#col6 {
-    font-size:1.1em
-}
-
-.references {
-    page-break-before: always;
-  }
-
-p.jargon, .para, .rule {
-    page-break-before: avoid
-  }
-}
-
-body {
-  margin: 0;
-  background: #2f3037;
-  color: #353d46;
-  font: 16px/24px verdana, sans-serif
-}
-
-h1,h2,h3 {
-  color: #FF6B6B;
-  margin: 0 0 27px
 }
 
 nav#slide-menu {
@@ -529,3 +470,42 @@ body.menu-active div#content {
 body.menu-active div#content .menu-trigger, body.menu-active div#content .closeall, body.menu-active div#content .expand {
   left: 294px
 }
+@media print {
+  body div#content, body div.page {
+    all: initial;
+}
+
+div.page, p.head, p.rule, p.jargon {
+    font: 1em/1.125em serif;
+  }
+
+p.jargon {
+    color:initial;
+    background-color:initial;
+    border:none
+}
+
+p.jargon jar,div.references > .jargon code {
+    border-bottom:none
+}    
+  body nav#slide-menu, div.menu-trigger, div.closeall, div.expand {
+    display:none
+}
+
+div.card {
+    box-shadow:initial
+}
+
+div.card p#col6 {
+    font-size:1.1em
+}
+
+.references {
+    page-break-before: always;
+  }
+
+p.jargon, .para, .rule {
+    page-break-before: avoid
+  }
+}
+
