@@ -90,7 +90,11 @@ span.note:before {
   content:"\2245\2009";
   color:#369
 }
-
+p.cong::before {
+  content: "\2245";
+  color:#ba3925;
+  margin-right:3px;
+}
 .page {
   width: 100%
 }
@@ -98,7 +102,9 @@ span.note:before {
 .head {
   margin-bottom:-.5em;
   font-size: 1.125em;
-  font-family: verdana, sans-serif
+  font-family: verdana, sans-serif;
+  font-weight:bold;
+  color:#ba3925
 }
 
 #col2,#col5,.rule,.jargon {
@@ -477,6 +483,7 @@ body.menu-active div#content .menu-trigger, body.menu-active div#content .closea
 
 div.page, p.head, p.rule, p.jargon {
     font: 1em/1.125em serif;
+    color:initial;
   }
 
 p.jargon {

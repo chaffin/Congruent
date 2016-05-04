@@ -22,7 +22,7 @@ for (i in json.Article) {
     document.write("<li class=\"section\"><a href=\"#" + (json.Article[i].heading.toLowerCase().replace(/( )/g, "_")) + "\">" + (json.Article[i].heading) + "</a></li>\n");
  }
 }
-document.write("<li class=\"disclaimer\"><a href=\"#disclaimer\">Disclaimer</a></li>\n<li class=\"copyright\"><a href=\"#copyright\">Copyright</a></li>\n<li class=\"references\"><a href=\"#references\">References</a></li>\n<li class=\"congruence\"><a href=\"#notes\">Notes</a></li>\n<li class=\"sep congruent\"><a href=\"#congruence\">Congruence</a></li>\n<li class=\"jargon-ico\"><a href=\"#jargon\">Jargon</a></li>\n<li class=\"sep\"></li>\n</ul>\n<div id=\"quote\"></div>\n<footer>\n<p>&amp;cong; CONGRUENT &amp;copy;2016 &amp;middot; Larry Chaffin</p>\n</footer>\n</nav>\n<a id=\"top\"></a>\n<div id=\"content\">\n<div class=\"menu-trigger\"  onclick=\"myFunction()\"></div>\n<div class=\"closeall\"></div>\n<div class=\"expand\"></div>\n<div class=\"page\">\n<p id=\"col8\">&amp;cong; " + (json.Metadata.status) + "<br>\n" + (json.Metadata.Draft.date) + "</p>\n<p class=\"title\">" + (json.Metadata.topic) + "</p>\n<a id=\"abstract\"></a>\n<p class=\"head\">Abstract</p>\n");
+document.write("<li class=\"disclaimer\"><a href=\"#disclaimer\">Disclaimer</a></li>\n<li class=\"copyright\"><a href=\"#copyright\">Copyright</a></li>\n<li class=\"references\"><a href=\"#references\">References</a></li>\n<li class=\"congruence\"><a href=\"#notes\">Notes</a></li>\n<li class=\"sep congruent\"><a href=\"#congruence\">Congruence</a></li>\n<li class=\"jargon-ico\"><a href=\"#jargon\">Jargon</a></li>\n<li class=\"sep\"></li>\n</ul>\n<div id=\"quote\"></div>\n<footer>\n<p class=\"cong\">CONGRUENT &amp;copy;2016 &amp;middot; Larry Chaffin</p>\n</footer>\n</nav>\n<a id=\"top\"></a>\n<div id=\"content\">\n<div class=\"menu-trigger\"  onclick=\"myFunction()\"></div>\n<div class=\"closeall\"></div>\n<div class=\"expand\"></div>\n<div class=\"page\">\n<p id=\"col8\" class=\"cong\">" + (json.Metadata.status) + "<br>\n" + (json.Metadata.Draft.date) + "</p>\n<p class=\"title\">" + (json.Metadata.topic) + "</p>\n<a id=\"abstract\"></a>\n<p class=\"head\">Abstract</p>\n");
 // abstract
 var s = json.Metadata.status;
 for (i in Congruent.Abstract[s]) {
@@ -33,8 +33,8 @@ for (i in Congruent.Abstract[s]) {
 // reference list
   document.write("<p class=\"head\">References</p>\n<p class=\"para\">\n");
 for (i in json.References) {
-  document.write("<a href=\"#"+ (alpha[i]) +"\">("+ (alpha[i]) +") " + (json.References[i].attribution) + "</a><br>\n");
-  r.push("(" + (alpha[i]) + ")  " + (json.References[i].attribution) + " " + (json.References[i].source));
+  document.write("<a href=\"#"+ (alpha[i]) +"\">("+ (alpha[i]) +") " + (json.References[i].citation) + "</a><br>\n");
+  r.push("(" + (alpha[i]) + ")  " + (json.References[i].citation) + " " + (json.References[i].source));
 }
 // congruent article
 for (i in json.Article) {
@@ -69,7 +69,7 @@ for (i in Congruent.Copyright) {
 // references
  document.write("<div class=\"references\">\n<p class=\"title\"><a id=\"references\">References</a></p>\n");
 for (i in json.References) {
- document.write("<a id=\"" + (alpha[i]) + "\"></a>\n<p id=\"col1\" class=\"note\">(" + (alpha[i]) + ") " + (json.References[i].attribution) + " " + (json.References[i].source) + "</p>\n");
+ document.write("<a id=\"" + (alpha[i]) + "\"></a>\n<p id=\"col1\" class=\"note\">(" + (alpha[i]) + ") " + (json.References[i].citation) + " " + (json.References[i].source) + "</p>\n");
  }
 // notes 
  document.write("</div><div class=\"references\">\n<p class=\"title\"><a id=\"notes\">Notes</a></p>\n");
