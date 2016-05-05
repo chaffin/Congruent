@@ -130,8 +130,6 @@ p.jargon jar {
 }
 
 sup { 
-  font-size:60%;
-  color:#000;
   font-weight:700;
   padding-right:6px
 }
@@ -515,4 +513,3 @@ p.jargon, .para, .rule {
     page-break-before: avoid
   }
 }
-
