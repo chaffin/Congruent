@@ -130,7 +130,6 @@ p.jargon jar {
 }
 
 sup { 
-  font-weight:700;
   padding-right:6px
 }
 
@@ -509,7 +508,7 @@ div.card p#col6 {
     page-break-before: always;
   }
 
-p.jargon, .para, .rule {
-    page-break-before: avoid
+p.jargon, .rule {
+    page-break-inside: avoid
   }
 }
