@@ -81,7 +81,17 @@ for (i in json.References) {
     }
   }
 // congruence
- document.write("</div><div class=\"references\">\n<p class=\"title\"><a id=\"congruence\">Congruence</a></p>\n<div class=\"card\">\n<p id=\"col8\" style=\"margin-top:-1rem;\">" + (json.Metadata.UID) + "</p>\n<p id=\"col8\" style=\"margin-top:-1rem;\">Congruent Draft<br>" + (json.Metadata.Draft.date) + "</p>\n<p id=\"col6\">" + (json.Metadata.Draft.Author.name) + "</p>\n<hr>\n<p>" + (json.Metadata.Draft.Author.industry) + "<br>" + (json.Metadata.Draft.Author.title) + "<br>" + (json.Metadata.Draft.Author.social) + "</p>\n</div>\n");
+ document.write("</div><div class=\"references\">\n<p class=\"title\"><a id=\"congruence\">Congruence</a></p>\n<div class=\"grid grid-pad\">\n<div class=\"col-1-2\">\n<div class=\"card\">\n<p id=\"col8\" style=\"margin-top:-1rem;\">" + (json.Metadata.UID) + "</p>\n<p id=\"col8\" style=\"margin-top:-1rem;\">Congruent Draft<br>" + (json.Metadata.Draft.date) + "</p>\n<p id=\"col6\">" + (json.Metadata.Draft.Author.name) + "</p>\n<hr>\n<p>" + (json.Metadata.Draft.Author.industry) + "<br>" + (json.Metadata.Draft.Author.title) + "<br>" + (json.Metadata.Draft.Author.social) + "</p>\n</div>\n</div>\n");
+if (json.Metadata.Review.date) {
+  document.write("<div class=\"col-1-2\">\n<div class=\"card\">\n<p id=\"col8\" style=\"margin-top:-1rem;\">" + (json.Metadata.UID) + "</p>\n<p id=\"col8\" style=\"margin-top:-1rem;\">Congruent Review<br>" + (json.Metadata.Review.date) + "</p>\n<p id=\"col6\">" + (json.Metadata.Review.Author.name) + "</p>\n<hr>\n<p>" + (json.Metadata.Review.Author.industry) + "<br>" + (json.Metadata.Review.Author.title) + "<br>" + (json.Metadata.Review.Author.social) + "</p>\n</div>\n</div>\n");
+}
+if (json.Metadata.Congruent.date) {
+  document.write("<div class=\"col-1-2\">\n<div class=\"card\">\n<p id=\"col8\" style=\"margin-top:-1rem;\">" + (json.Metadata.UID) + "</p>\n<p id=\"col8\" style=\"margin-top:-1rem;\">Congruent<br>" + (json.Metadata.Congruent.date) + "</p>\n<p id=\"col6\">" + (json.Metadata.Congruent.Author.name) + "</p>\n<hr>\n<p>" + (json.Metadata.Congruent.Author.industry) + "<br>" + (json.Metadata.Congruent.Author.title) + "<br>" + (json.Metadata.Congruent.Author.social) + "</p>\n</div>\n</div>\n</div>\n");
+} else {
+document.write("</div>");
+}
+// note to self: add loop for congruence 5/22/2016
+// Jargon rules
  document.write("</div>\n<div class=\"references\">\n<p class=\"title\"><a id=\"jargon\"><span id=\"jargon-logo\">Jargon Rules</span></a></p>\n");
 for (i in jargon) {
   document.write("<p id=\"col0\" class=\"rule\">" + (jargon[i].rule) + "</p><p id=\"col1\" class=\"jargon\">" + (jargon[i].jargon.replace(/\[/g, "[<code>").replace(/\]/g, "</code>]")) + "</p>\n");
