@@ -6,7 +6,7 @@
 <meta name="author" content="Larry Chaffin">
 <meta name="date" content="April 23, 2016">
 <style>
-body{font:16px/24px sans-serif;color:#000;background-color:#fff;margin:2em auto;padding:0 1em}a{text-decoration:none;color:blue}a:hover{text-decoration:underline;color:#369}h1,h2,h3,p,ul,ol{margin:0 0 10px;padding:0}h1,h2,i{font-family:Calibri, Georgia, "Times New Roman", serif;font-weight:400}h1,caption{font-size:1.3em}h2{text-indent:.25in;font-size:1.2em;font-style:italic}h3{font:1.3em arial;}h4{font:1.2em  serif;}i{font-size:1.2em;font-style:italic}ul{list-style-type:none}li{margin:0 0 5px 35px;padding:0}li:before{margin-right:.5rem;content:'\2245';color:tomato}pre,code{font-family:Consolas, Monaco, "Courier New", monospace}label{cursor:pointer}hr{margin:0 0 1em}p#header {font-size:1.2em;text-transform:uppercase;letter-spacing:.2em}p#indent{margin:1em .5in}pre{border:1px solid #999;border-radius:15px;background-color:#eee;margin:1em .5in;padding:1em}table{border-collapse:collapse;width:auto;margin:2rem}td {border:1px solid #333;}th{padding:3px 9px;background-color:#333;color:#fff;border-color:#fff;border-bottom:1px solid #333;border-radius:20px} td.l{text-align:left;}td.c{text-align:center;}td.r{text-align:right;}td{font-size:.9rem;padding:3px;}.page{margin-left:20rem;max-width:48rem}tr.red{background-color:#fee}tr.grn{background-color:#efe}tr.yel{background-color:#ffe}
+body{font:16px/24px sans-serif;color:#000;background-color:#fff;margin:2em auto;padding:0 1em}a{text-decoration:none;color:blue}a:hover{text-decoration:underline;color:#369}h1,h2,h3,p,ul,ol{margin:0 0 10px;padding:0}h1,h2,i{font-family:Calibri, Georgia, "Times New Roman", serif;font-weight:400}h1,caption{font-size:1.3em}h2{text-indent:.25in;font-size:1.2em;font-style:italic}h3{font:1.3em arial;}h4{font:1.2em  serif;}i{font-size:1.2em;font-style:italic}ul{list-style-type:none}li{margin:0 0 5px 35px;padding:0}li:before{margin-right:.5rem;content:'\2245';color:tomato}pre,code{font-family:Consolas, Monaco, "Courier New", monospace}label{cursor:pointer}hr{margin:0 0 1em}p#header {font-size:1.2em;text-transform:uppercase;letter-spacing:.2em}p#indent{margin:1em .5in}pre{border:1px solid #999;border-radius:15px;background-color:#eee;margin:1em .5in;padding:1em}table{border-collapse:collapse;width:auto;margin:2rem}td {border:1px solid #333;}th{padding:3px 9px;background-color:#333;color:#fff;border-color:#fff;border-bottom:1px solid #333} td.l{text-align:left;}td.c{text-align:center;}td.r{text-align:right;}td{font-size:.9rem;padding:3px;}.page{margin-left:20rem;max-width:48rem}tr.red{background-color:#fee}tr.grn{background-color:#efe}tr.yel{background-color:#ffe}
 </style>
 </head>
 <body>
@@ -102,7 +102,7 @@ body{font:16px/24px sans-serif;color:#000;background-color:#fff;margin:2em auto;
 <tr class="yel"><td>Draft</td><td class="c">object</td><td class="c">1</td><td>An <i>object</i> property that contains <i>Congruent</i> <code>metadata</code> <i>object</i> <span style="font-size:130%;color:tomato">&#187;</span> <strong>Author</strong> and <i>string</i> <strong>date</strong>.</td></tr>
 <tr class="yel"><td>Review</td><td class="c">object</td><td class="c">1</td><td>An <i>object</i> property that contains <i>Congruent</i> <code>metadata</code> <i>object</i> <span style="font-size:130%;color:tomato">&#187;</span> <strong>Author</strong> and <i>string</i> <strong>date</strong>.</td></tr>
 <tr class="yel"><td>Congruent</td><td class="c">object</td><td class="c">1</td><td>An <i>object</i> property that contains <i>Congruent</i> <code>metadata</code> <i>object</i> <span style="font-size:130%;color:tomato">&#187;</span> <strong>Author</strong> and <i>string</i> <strong>date</strong>.</td></tr>
-<tr class="red"><td>&nbsp;&nbsp;&nbsp;&nbsp;date</td><td class="c">string</td><td class="c">1</td><td>A non-restrictive date <i>string</i> used within the <code>metadata</code> &lt;meta&gt; <i>review-date</i> and <i>congruent-date</i> as well as the document <strong>header</strong> and professional <strong>cards</strong>.<br>The long date format <code><strong>Month DD, YYYY</strong></code> is perferred.</td></tr>
+<tr class="red"><td>&nbsp;&nbsp;&nbsp;&nbsp;date</td><td class="c">string</td><td class="c">1</td><td>A non-restrictive date <i>string</i> used within the <code>metadata</code> &lt;meta&gt; <i>review-date</i> and <i>congruent-date</i> as well as the document <strong>header</strong> and professional <strong>cards</strong>.<br><br>&bull;&nbsp;&nbsp;The long date format <code><strong>Month DD, YYYY</strong></code> is perferred.<br><br><strong>NOTE:</strong>The date field is used by congruent to determine logic calls and therefore the values are <code>null</code> or <code>""</code> other wise contains a date.</td></tr>
 <tr class="yel"><td>&nbsp;&nbsp;&nbsp;&nbsp;Author</td><td class="c">object</td><td class="c">1</td><td></td></tr>
 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name</td><td class="c">string</td><td class="c">1</td><td>A simple <code>text</code> <i>string</i> that is formatted per the author's discretion and may include honorary titles and certificate acronyms. The perferred format is one that would look good on a printed certificate or business card.</td></tr>
 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title</td><td class="c">string</td><td class="c">1</td><td></td></tr>
@@ -113,7 +113,7 @@ body{font:16px/24px sans-serif;color:#000;background-color:#fff;margin:2em auto;
 <pre>
 {
  "Draft": {
-   "date": "string",
+   "date": null,
    "Author": {
    "name": "string",
    "title": "string",
@@ -127,7 +127,7 @@ body{font:16px/24px sans-serif;color:#000;background-color:#fff;margin:2em auto;
 <pre>
 {
  "Review": {
-   "date": "string",
+   "date": null,
    "Author": {
    "name": "string",
    "title": "string",
@@ -141,7 +141,7 @@ body{font:16px/24px sans-serif;color:#000;background-color:#fff;margin:2em auto;
 <pre>
 {
  "Congruent": {
-   "date": "string",
+   "date": null,
    "Author": {
    "name": "string",
    "title": "string",
@@ -160,7 +160,7 @@ body{font:16px/24px sans-serif;color:#000;background-color:#fff;margin:2em auto;
 </colgroup>
 <tr><th>Property</th><th>Type</th><th>Count</th><th>Description</th></tr>
 <tr class="yel"><td>Congruence</td><td class="c">array</td><td class="c">0-n</td><td>An optional property <i>array</i> that may contain <strong>0</strong> or more elements.</td></tr>
-<tr class="red"><td>&nbsp;&nbsp;&nbsp;&nbsp;date</td><td class="c">string</td><td class="c">0-1</td><td>A non-restrictive date <i>string</i> displayed with the professional card. The long date format <code><strong>Month DD, YYYY</strong></code> is perferred.</td></tr>
+<tr class="red"><td>&nbsp;&nbsp;&nbsp;&nbsp;date</td><td class="c">string</td><td class="c">0-1</td><td>A non-restrictive date <i>string</i> displayed with the professional card.<br><br>&bull;&nbsp;&nbsp;The long date format <code><strong>Month DD, YYYY</strong></code> is perferred.<br><br><strong>NOTE:</strong>The date field is used by congruent to determine logic calls and therefore the values are <code>null</code> or <code>""</code> other wise contains a date.</td></tr>
 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;name</td><td class="c">string</td><td class="c">0-1</td><td>A simple <code>text</code> <i>string</i> that is formatted per the author's discretion and may include honorary titles and certificate acronyms. The perferred format is one that would look good on a printed certificate or business card.</td></tr>
 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;title</td><td class="c">string</td><td class="c">0-1</td><td></td></tr>
 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;industry</td><td class="c">string</td><td class="c">0-1</td><td></td></tr>
@@ -171,7 +171,7 @@ body{font:16px/24px sans-serif;color:#000;background-color:#fff;margin:2em auto;
 {
  "Congruence": [
   {
-   "date": "string",
+   "date": null,
    "name": "string",
    "title": "string",
    "industry": "string",
@@ -202,6 +202,11 @@ body{font:16px/24px sans-serif;color:#000;background-color:#fff;margin:2em auto;
 <tr><th>Property</th><th>Type</th><th>Count</th><th>Description</th></tr>
 <tr class="yel"><td class="l">Introduction</td><td class="c">array</td><td class="c">1-n</td><td></td></tr>
 </table>
+<pre>
+ "Introduction": [
+    "string"
+  ]
+</pre>
 <a id="article"></a>
 <table>
 <caption>Article</caption>
@@ -255,7 +260,7 @@ body{font:16px/24px sans-serif;color:#000;background-color:#fff;margin:2em auto;
       }
     },
     "Review": {
-      "date": "string",
+      "date": null,
       "Author": {
         "name": "string",
         "title": "string",
@@ -264,7 +269,7 @@ body{font:16px/24px sans-serif;color:#000;background-color:#fff;margin:2em auto;
       }
     },
     "Congruent": {
-      "date": "string",
+      "date": null,
       "Author": {
         "name": "string",
         "title": "string",
@@ -274,7 +279,7 @@ body{font:16px/24px sans-serif;color:#000;background-color:#fff;margin:2em auto;
     },
     "Congruence": [
       {
-        "date": "string",
+        "date": null,
         "name": "string",
         "title": "string",
         "industry": "string",
@@ -315,4 +320,3 @@ body{font:16px/24px sans-serif;color:#000;background-color:#fff;margin:2em auto;
 <div style="position:fixed;left:0px;bottom:0px;padding:.5rem;width:100%;font:1rem serif;background:#333"><p style="text-align:center;color:#fff">Congruent <span style="color:tomato";>&cong;</span> 2016: A state of agreement by coming together. The Latin root 'congruo' means 'I meet together, I agree'.</p></div>
 </body>
 </html>
-
