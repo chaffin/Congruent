@@ -41,7 +41,7 @@ var jargon = [
   },
   {
     "rule": "2. Rule frame [morpheme:define]",
-    "jargon": "Sometimes a word means something to one person, and something different to another. This frame rule allows the author to add a [few:not greater than four] words to ensure the meaning. Yes, that is Jargon defining the maximum number of words to use when applying this rule."
+    "jargon": "Sometimes a word means something to one person, and something different to another. This frame rule allows the author to add a [few:not greater than four] words to ensure the meaning. Yes, that is Jargon defining \"few\" as meaning the maximum number of words to use when applying this rule."
   },
   {
     "rule": "3. Rule frame [#morpheme]",
@@ -53,7 +53,7 @@ var jargon = [
   },
   {
     "rule": "5. Rule frame [morpheme|related]",
-    "jargon": "This Jargon rule frame is [similar|related] to rule [two|2] with emphasis on related. There are [6|six] Jargon frames within this rule that fully [displays|shows] this rule frame in action. The reader will [notice|see] the relationships to fully [understand|realize] the authors intent."
+    "jargon": "This Jargon rule frame is [similar|related] to rule [two|2] with emphasis on related. There are [6|six] Jargon frames within this rule that fully [displays|shows] this rule frame in action. The reader will [notice|see] the relationships to fully [understand|realize] the author's intent."
   },
   {
     "rule": "6. Rule frame [morpheme(synonym)]",
@@ -65,11 +65,11 @@ var jargon = [
   },
   {
     "rule": "8. Rule frame [morpheme|~unrelated]",
-    "jargon": "This rule frame is the opposite of rule frame five. The [author|~reader] chooses the morpheme to negate, rather than frame. This rule allows the author to completely rule-out any stray thoughts the reader may form while understanding the work. Remember, Jargon [rules|~recommendations]."
+    "jargon": "This rule frame is [opposite|~similar] to rule frame five. The [author|~reader] chooses the morpheme to [negate|~add], rather than frame. This rule allows the author to completely rule-out any stray thoughts the reader may form while understanding the work. Remember, Jargon [rules|~recommendations]."
   },
   {
     "rule": "9. Rule frame [morpheme|*example]",
-    "jargon": "There are some morphemes that require examples to make a point. This frame rule relies on [short|*small,*quickly stated,*pointed] examples to frame a morpheme more clearly. Unlike rule frame two, this rule frame is not defined but rather an example, which is similar to the grammar rule that utilizes \"Latin e.g.\" when one is not intending to list everything."
+    "jargon": "There are some morphemes that require examples in order to clarify meaning. This rule frame relies on [short|*small;*quickly stated;*pointed] examples to frame a morpheme more clearly. Unlike rule frame two, this rule frame is not defined but rather an example, which is similar to the grammar rule that utilizes Latin (e.g. for example; for the sake of example; such as)."
   }
 ]
 function myFunction() {
