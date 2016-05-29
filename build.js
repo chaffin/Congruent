@@ -10,7 +10,7 @@ var y = 0;
 var n = 0;
 var r = [];
 var alpha = ["a","b","c","d","e","f","g","h","i","j","k","l"];
-document.getElementById("head").innerHTML = "<title>Congruent Formatter<head></title><style>div#page{margin:auto;max-width:48em;color:#303030;font-family:sans-serif;}h1{text-align:center;color:#606060;}textarea{overflow:auto;width:48em;height:250px;border:3px solid #cccccc;padding:5px;font-family:sans-serif;background-color:#ffe;background-position:bottom right;}input{background-color:#ffa;}</style></head>";
+document.getElementById("head").innerHTML = "<title>Congruent Formatter<head></title><style>div#page{margin:auto;max-width:48em;color:#303030;font-family:sans-serif;}h1{text-align:center;color:#606060;}textarea{overflow:auto;width:48em;height:250px;border:3px solid #cccccc;padding:5px;font-family:sans-serif;background-color:#ffe;background-position:bottom right;}pre{background-color:#eee}input{background-color:#ffa;}</style></head>";
 document.write("<div id=\"page\"><p><h1>Format Congruent File</h1><b>File:</b> " + (json.Metadata.topic) + "<br><b>Date:</b> " + (json.Metadata.Draft.date) + "</p><p><b>Description</b><br> " + (json.Metadata.description) + "</p>");
 document.write("<textarea wrap=\"soft\">");
 //  metadata
@@ -102,10 +102,11 @@ if (json.Metadata.UID === null) {
  document.write("<p><span style=\"font-size:130%;color:tomato\">&cong;</span> Copy and paste this <b>UID</b> into your <em><b>json</b></em> file under <kbd>Metadata:UID:</kbd> <input type='text' size='12' name='Date' value='" + (Date.now()) + "'></p>");
 }
 document.write("</div>");
-//
-//
-// groff typeset
-//
+/*
+ *
+ *  groff typeset
+ *
+*/
 var y = 0;
 var n = 0;
 document.write("<hr style=\"height: 16px;border: 0;box-shadow: inset 0 16px 16px -16px rgba(0, 0, 0, 0.5);\"><div id=\"page\"><p><h1>Format TEXT File</h1><b>File:</b> " + (json.Metadata.topic) + "<br><b>Date:</b> " + (json.Metadata.Draft.date) + "</p><p><b>Description</b><br> " + (json.Metadata.description) + "</p>");
@@ -167,7 +168,7 @@ for (i in json.References) {
   for (i in json.Article) {
    if (json.Article[i].note) {
     var x = n + 1;
-    document.write(".sp\n[" + (x) + "]. " + (json.Article[i].note) + "\n");
+    document.write(".sp\n[" + (x) + "]\t" + (json.Article[i].note) + "\n");
     var n = x;
     }
   }
@@ -182,4 +183,91 @@ if (json.Metadata.Congruent.date) {
 }
 document.write(".fi</textarea>");
 document.write("<p><span style=\"font-size:130%;color:tomato\">&cong;</span> Copy and paste the above text to a file named: <input type='text' size='40' name='Filename' value='" + (json.Metadata.version.replace(/( )/g, "_")) + ".txt'></p>");
-document.write("<p>Convert using groff or troff; typesetting systems that reads plain text mixed with formatting commands and produces formatted output.</p><pre>groff -mandoc -T latin1 " + (json.Metadata.version.replace(/( )/g, "_")) + ".txt > output.txt</pre>");
+document.write("<p>Convert using groff or troff; typesetting systems that reads plain text mixed with formatting commands and produces formatted output.</p><pre>\n\n\tgroff -mandoc -T latin1 " + (json.Metadata.version.replace(/( )/g, "_")) + ".txt > output.txt\n\n</pre></div>");
+/*
+ *
+ *  markdown text
+ *
+*/
+var y = 0;
+var n = 0;
+document.write("<hr style=\"height: 16px;border: 0;box-shadow: inset 0 16px 16px -16px rgba(0, 0, 0, 0.5);\"><div id=\"page\"><p><h1>Format Markdown text File</h1><b>File:</b> " + (json.Metadata.topic) + "<br><b>Date:</b> " + (json.Metadata.Draft.date) + "</p><p><b>Description</b><br> " + (json.Metadata.description) + "</p>");
+document.write("<textarea rows=\"24\" cols=\"120\" wrap=\"soft\">");
+//  metadata
+//    document.write("<!DOCTYPE html>\n<html>\n<head>\n<title>" + (json.Metadata.topic) + "</title>\n<meta name=\"UID\" content=\"" + (json.Metadata.UID) + "\">\n<meta name=\"topic\" content=\"" + (json.Metadata.topic) + "\">\n<meta name=\"category\" content=\"" + (json.Metadata.category) + "\">\n<meta name=\"description\" content=\"" + (json.Metadata.description) + "\">\n<meta name=\"keywords\" content=\"" + (json.Metadata.keywords) + "\">\n<meta name=\"author\" content=\"" + (json.Metadata.Draft.Author.name) + "\">\n<meta name=\"reviewer\" content=\"" + (json.Metadata.Review.Author.name) + "\">\n<meta name=\"review-date\" content=\"" + (json.Metadata.Review.date) + "\">\n<meta name=\"congruent\" content=\"" + (json.Metadata.Congruent.Author.name) + "\">\n<meta name=\"congruent-date\" content=\"" + (json.Metadata.Congruent.date) + "\">\n<meta name=\"status\" content=\"" + (json.Metadata.status) + "\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<link rel=\"stylesheet\" href=\"congruent.css\">\n<script src=\"http://code.jquery.com/jquery-1.12.2.min.js\"></script>\n<script src=\"congruent.js\"></script>\n</head>\n<body>\n");
+// nav
+document.write("#Access Controls\n\n");
+for (i in json.Article) {
+  if (json.Article[i].heading) {
+    document.write("* [" + (json.Article[i].heading) + "] (#" + (json.Article[i].heading.toLowerCase().replace(/( )/g, "-")) + ")\n");
+ }
+}
+// abstract
+var s = json.Metadata.status;
+for (i in Congruent.Abstract[s]) {
+  document.write("\n#ABSTRACT\n\n" + (Congruent.Abstract[s][i]) + "\n\n");
+}
+// keywords
+  document.write("> *Keywords*: " + (json.Metadata.keywords) + "\n");
+// reference list
+  document.write("\n#References\n\n");
+for (i in json.References) {
+  document.write((alpha[i]) + ". [" + (json.References[i].citation) + "] (#" + (alpha[i]) + ")\n");
+  r.push("(" + (alpha[i]) + ")  " + (json.References[i].citation) + " " + (json.References[i].source));
+}
+// congruent article
+for (i in json.Article) {
+  if (json.Article[i].heading) {
+    document.write("\n#" + (json.Article[i].heading) + "\n\n");
+      for (k in json.Article[i].Para) {
+        document.write((json.Article[i].Para[k]) + "\n\n");
+      }
+    }
+// jargon and notes
+if (json.Article[i].rule) {
+ document.write("**" + (json.Article[i].rule) + "**\n\n");
+ document.write(">&equiv;&nbsp;&nbsp;" + (json.Article[i].jargon));
+  if (json.Article[i].note) {
+   var x = y + 1;
+   document.write("<sup><a id=\"" + (x) + "\" href=\"#id" + (x) + "\">" + (x) + "</a></sup>");
+   var y = x;
+  }
+  document.write("\n\n");
+ }
+}
+// disclaimer
+  document.write("#Disclaimer\n\n");
+for (i in Congruent.Disclaimer) {
+  document.write((Congruent.Disclaimer[i]) + "\n\n");
+}
+// copyright
+  document.write("#Copyright\n\n");
+for (i in Congruent.Copyright) {
+  document.write((Congruent.Copyright[i]) + "\n\n");
+}
+// references
+ document.write("#References\n\n");
+for (i in json.References) {
+ document.write("<a id=\"" + (alpha[i]) + "\"></a>\n<p id=\"col1\" class=\"note\">(" + (alpha[i]) + ") " + (json.References[i].citation) + " " + (json.References[i].source) + "</p>\n");
+ }
+// notes 
+ document.write("</div><div class=\"references\">\n<p class=\"title\"><a id=\"notes\">Notes</a></p>\n");
+  for (i in json.Article) {
+   if (json.Article[i].note) {
+    var x = n + 1;
+    document.write("<p id=\"col1\" class=\"note\"><a id=\"id" + (x) + "\"></a><a href=\"#" + (x) + "\"><sup>" + (x) + "</sup></a>" + (json.Article[i].note) + "</p>");
+    var n = x;
+    }
+  }
+// congruence
+ document.write("</div><div class=\"references\">\n<p class=\"title\"><a id=\"congruence\">Congruence</a></p>\n<div class=\"grid grid-pad\">\n<div class=\"col-1-2\">\n<div class=\"card\">\n<p id=\"col8\" style=\"margin-top:-1rem;\">" + (json.Metadata.UID) + "</p>\n<p id=\"col8\" style=\"margin-top:-1rem;\">Congruent Draft<br>" + (json.Metadata.Draft.date) + "</p>\n<p id=\"col6\">" + (json.Metadata.Draft.Author.name) + "</p>\n<hr>\n<p>" + (json.Metadata.Draft.Author.industry) + "<br>" + (json.Metadata.Draft.Author.title) + "<br>" + (json.Metadata.Draft.Author.contact) + "</p>\n</div>\n</div>\n");
+if (json.Metadata.Review.date) {
+  document.write("<div class=\"col-1-2\">\n<div class=\"card\">\n<p id=\"col8\" style=\"margin-top:-1rem;\">" + (json.Metadata.UID) + "</p>\n<p id=\"col8\" style=\"margin-top:-1rem;\">Congruent Review<br>" + (json.Metadata.Review.date) + "</p>\n<p id=\"col6\">" + (json.Metadata.Review.Author.name) + "</p>\n<hr>\n<p>" + (json.Metadata.Review.Author.industry) + "<br>" + (json.Metadata.Review.Author.title) + "<br>" + (json.Metadata.Review.Author.contact) + "</p>\n</div>\n</div>\n");
+}
+if (json.Metadata.Congruent.date) {
+  document.write("<div class=\"col-1-2\">\n<div class=\"card\">\n<p id=\"col8\" style=\"margin-top:-1rem;\">" + (json.Metadata.UID) + "</p>\n<p id=\"col8\" style=\"margin-top:-1rem;\">Congruent<br>" + (json.Metadata.Congruent.date) + "</p>\n<p id=\"col6\">" + (json.Metadata.Congruent.Author.name) + "</p>\n<hr>\n<p>" + (json.Metadata.Congruent.Author.industry) + "<br>" + (json.Metadata.Congruent.Author.title) + "<br>" + (json.Metadata.Congruent.Author.contact) + "</p>\n</div>\n</div>\n</div>\n");
+} else {
+document.write("</div>");
+}
+document.write("</textarea>");
+document.write("<p><span style=\"font-size:130%;color:tomato\">&cong;</span> Copy and paste the above text to a file named: <input type='text' size='40' name='Filename' value='" + (json.Metadata.topic.replace(/( )/g, "_")) + ".md'></p>");
