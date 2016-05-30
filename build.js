@@ -193,15 +193,14 @@ var y = 0;
 var n = 0;
 document.write("<hr style=\"height: 16px;border: 0;box-shadow: inset 0 16px 16px -16px rgba(0, 0, 0, 0.5);\"><div id=\"page\"><p><h1>Format Markdown text File</h1><b>File:</b> " + (json.Metadata.topic) + "<br><b>Date:</b> " + (json.Metadata.Draft.date) + "</p><p><b>Description</b><br> " + (json.Metadata.description) + "</p>");
 document.write("<textarea rows=\"24\" cols=\"120\" wrap=\"soft\">");
-//  metadata
-//    document.write("<!DOCTYPE html>\n<html>\n<head>\n<title>" + (json.Metadata.topic) + "</title>\n<meta name=\"UID\" content=\"" + (json.Metadata.UID) + "\">\n<meta name=\"topic\" content=\"" + (json.Metadata.topic) + "\">\n<meta name=\"category\" content=\"" + (json.Metadata.category) + "\">\n<meta name=\"description\" content=\"" + (json.Metadata.description) + "\">\n<meta name=\"keywords\" content=\"" + (json.Metadata.keywords) + "\">\n<meta name=\"author\" content=\"" + (json.Metadata.Draft.Author.name) + "\">\n<meta name=\"reviewer\" content=\"" + (json.Metadata.Review.Author.name) + "\">\n<meta name=\"review-date\" content=\"" + (json.Metadata.Review.date) + "\">\n<meta name=\"congruent\" content=\"" + (json.Metadata.Congruent.Author.name) + "\">\n<meta name=\"congruent-date\" content=\"" + (json.Metadata.Congruent.date) + "\">\n<meta name=\"status\" content=\"" + (json.Metadata.status) + "\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<link rel=\"stylesheet\" href=\"congruent.css\">\n<script src=\"http://code.jquery.com/jquery-1.12.2.min.js\"></script>\n<script src=\"congruent.js\"></script>\n</head>\n<body>\n");
 // nav
-document.write("#Access Controls\n\n");
+document.write("#" + (json.Metadata.topic) + "\n\n");
 for (i in json.Article) {
   if (json.Article[i].heading) {
     document.write("* [" + (json.Article[i].heading) + "] (#" + (json.Article[i].heading.toLowerCase().replace(/( )/g, "-")) + ")\n");
  }
 }
+document.write("* [Disclaimer] (#Disclaimer)\n* [Copyright] (#Copyright)\n* [References] (#References)\n* [Notes] (#Notes)\n* [Congruence] (#Congruence)\n");
 // abstract
 var s = json.Metadata.status;
 for (i in Congruent.Abstract[s]) {
