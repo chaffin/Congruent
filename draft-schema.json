@@ -1,6 +1,7 @@
-{
+var json = {
   "Metadata": {
     "UID": null,
+    "version": "string",
     "status": "String",
     "topic": "string",
     "category": "string",
