@@ -104,6 +104,84 @@ if (json.Metadata.UID === null) {
 document.write("</div>");
 /*
  *
+ * single html file
+ *
+*/
+var y = 0;
+var n = 0;
+document.write("<hr style=\"height: 16px;border: 0;box-shadow: inset 0 16px 16px -16px rgba(0, 0, 0, 0.5);\"><div id=\"page\"><p><h1>Format Single HTML File</h1><b>File:</b> " + (json.Metadata.topic) + "<br><b>Date:</b> " + (json.Metadata.Draft.date) + "</p><p><b>Description</b><br> " + (json.Metadata.description) + "</p>");
+document.write("<textarea rows=\"24\" cols=\"120\" wrap=\"soft\">");
+//  metadata
+    document.write("<!DOCTYPE html>\n<html>\n<head>\n<title>" + (json.Metadata.topic) + "</title>\n<meta name=\"UID\" content=\"" + (json.Metadata.UID) + "\">\n<meta name=\"topic\" content=\"" + (json.Metadata.topic) + "\">\n<meta name=\"category\" content=\"" + (json.Metadata.category) + "\">\n<meta name=\"description\" content=\"" + (json.Metadata.description) + "\">\n<meta name=\"keywords\" content=\"" + (json.Metadata.keywords) + "\">\n<meta name=\"author\" content=\"" + (json.Metadata.Draft.Author.name) + "\">\n<meta name=\"reviewer\" content=\"" + (json.Metadata.Review.Author.name) + "\">\n<meta name=\"review-date\" content=\"" + (json.Metadata.Review.date) + "\">\n<meta name=\"congruent\" content=\"" + (json.Metadata.Congruent.Author.name) + "\">\n<meta name=\"congruent-date\" content=\"" + (json.Metadata.Congruent.date) + "\">\n<meta name=\"status\" content=\"" + (json.Metadata.status) + "\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
+    document.write("<style>body{max-width:48em;font-family:Waree,Calibri;font-size:1em}@media all and (max-width:1024px){body{max-width:1024px}}.head{font-weight:700}.para{display:block}.jargon{display:block;letter-spacing:0.06825rem}.jar::before{content:\"\\2261\";margin-right:6px;color:tomato}.jar{text-align:right;font-weight:700}div.references{border-top:1px dashed #333}.ref{text-indent:-2rem}a:link,a:visited{text-decoration:none;color:#333}a:hover{background-color:#eee;border-radius:4px}.col0{margin-left:0}.col1{margin-left:3rem}.col2{margin-left:6rem}.col3{margin-left:9rem}.col4{margin-left:12rem}.col5{text-align:justify;margin-left:6rem;margin-right:3rem}.col6{text-align:center}.col7{margin-left:21rem;margin-right:0}.col8{text-align:right;margin-right:0}[class*='col-']{float:left;line-height:initial}.col-1-1{width:100%}.col-3-4{width:75%}.col-1-2{width:50%;min-width:350px}.col-1-4{width:25%}.grid:after{content:\"\";display:table;clear:both}*,*:after,*:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}[class*='col-']{padding-right:20px}[class*='col-']:last-of-type{padding-right:0}.grid-pad \> [class*='col-']:last-of-type{padding-right:20px}.cong::before{content:\"\\2245\";margin-right:6px;color:tomato}</style>\n</head>\n<body>\n");
+// heading
+document.write("<div class=\"grid grid-pad\">\n<div class=\"col-3-4\">" + (json.Metadata.UID) + "</div>\n<div class=\"col-1-4 cong\">" + (json.Metadata.status) + "</div>\n<div class=\"col-3-4\">" + (json.Metadata.category) + "</div>\n<div class=\"col-1-4\">" + (json.Metadata.Draft.date) + "</div>\n</div>\n");
+document.write("<p class=\"col6 head\">" + (json.Metadata.topic) + "</p>");
+// abstract
+  document.write("<p class=\"col0 head\">Abstract</p>\n");
+var s = json.Metadata.status;
+for (i in Congruent.Abstract[s]) {
+  document.write("<p class=\"col1 para\">" + (Congruent.Abstract[s][i]) + "</p>\n");
+}
+// keywords
+  document.write("<p class=\"col3 para\"><em>Keywords:</em> " + (json.Metadata.keywords) + "</p>\n");
+// reference list
+  document.write("<p class=\"col0 head\"><a id=\"references\">References</a></p>\n<p class=\"col1 para\">\n");
+for (i in json.References) {
+  document.write("<a href=\"#"+ (alpha[i]) +"\">("+ (alpha[i]) +") " + (json.References[i].citation) + "</a><br>\n");
+  r.push("(" + (alpha[i]) + ")  " + (json.References[i].citation) + " " + (json.References[i].source));
+}
+// congruent article
+document.write("<div class=\"grid grid-pad\">\n");
+for (i in json.Article) {
+  if (json.Article[i].heading) {
+    document.write("<a href=\"" + (json.Article[i].heading.toLowerCase().replace(/( )/g, "_")) + "\"></a><p class=\"col0 head\">" + (json.Article[i].heading) + "</p>\n");
+      for (k in json.Article[i].Para) {
+        document.write("<p class=\"col1 para\">" + (json.Article[i].Para[k]) + "</p>\n");
+      }
+    }
+// jargon and notes
+if (json.Article[i].rule) {
+ document.write("<p class=\"col-1-1 col1 para\">" + (json.Article[i].rule) + "</p>\n");
+ document.write("<div class=\"col-1-4 jar\">Jargon</div>\n<div class=\"col-3-4 jargon\">" + (json.Article[i].jargon));
+  if (json.Article[i].note) {
+   var x = y + 1;
+   document.write("<sup><a id=\"" + (x) + "\" href=\"#id" + (x) + "\">" + (x) + "</a></sup>");
+   var y = x;
+  }
+  document.write("</p>\n</div>\n");
+ }
+}
+// disclaimer
+  document.write("</p>\n</div>\n</div>\n<p class=\"col0 head\">Disclaimer</p>\n");
+for (i in Congruent.Disclaimer) {
+  document.write("<p class=\"col1 para\">" + (Congruent.Disclaimer[i]) + "</p>\n");
+}
+// copyright
+  document.write("<p class=\"col0 head\">Copyright</p>\n");
+for (i in Congruent.Copyright) {
+  document.write("<p class=\"col1 para\">" + (Congruent.Copyright[i]) + "</p>\n");
+}
+// references
+  document.write("<div class=\"references\">\n<p class=\"col6 head\"><a href=\"#references\">References</a></p>\n");
+for (i in json.References) {
+ document.write("<a id=\"" + (alpha[i]) + "\"></a>\n<p class=\"col1 ref\">(" + (alpha[i]) + ") " + (json.References[i].citation) + " " + (json.References[i].source) + "</p>\n");
+ }
+// notes 
+ document.write("</div><div class=\"references\">\n<p class=\"col6 head\"><a id=\"notes\">Notes</a></p>\n");
+  for (i in json.Article) {
+   if (json.Article[i].note) {
+    var x = n + 1;
+    document.write("<p class=\"col1\"><a id=\"id" + (x) + "\"></a><a href=\"#" + (x) + "\"><sup>" + (x) + "</sup></a> " + (json.Article[i].note) + "</p>");
+    var n = x;
+    }
+  }
+// note to self: add loop for congruence 5/22/2016
+// Jargon rules
+document.write("</div>\n</div>\n</div>\n</body>\n</html></textarea>");
+document.write("<p><span style=\"font-size:130%;color:tomato\">&cong;</span> Copy and paste the above text to a file named: <input type='text' size='40' name='Filename' value='" + (json.Metadata.topic) + ".html'></p></div>");
+/*
+ *
  *  groff typeset
  *
 */
