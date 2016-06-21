@@ -216,8 +216,8 @@ for (i in json.Article) {
     }
 // jargon and notes
 if (json.Article[i].rule) {
- document.write(".sp\n.in 4\n" + (json.Article[i].rule) + "\n");
- document.write(".sp\n.ti 4\n[JARGON]\n.in 8\n" + (json.Article[i].jargon));
+ document.write(".sp 2\n.in 4\n" + (json.Article[i].rule) + "\n");
+ document.write(".sp\n.ce\n[JARGON]\n.in 8\n" + (json.Article[i].jargon));
   if (json.Article[i].note) {
    var x = y + 1;
    document.write("[" + (x) + "]");
@@ -251,12 +251,12 @@ for (i in json.References) {
     }
   }
 // congruence
- document.write(".sp 2\n.ce\nCONGRUENCE\n.sp\n.nf\n" + (json.Metadata.UID) + "\n" + (json.Metadata.Draft.date) + "\n" + (json.Metadata.Draft.Author.name) + "\n" + (json.Metadata.Draft.Author.industry) + "\n" + (json.Metadata.Draft.Author.title) + "\n" + (json.Metadata.Draft.Author.contact) + "\n");
+ document.write(".sp 2\n.ce\nCONGRUENCE\n.sp\n.ti 2\nDRAFT\n\.sp\n.nf\n" + (json.Metadata.UID) + "\n" + (json.Metadata.Draft.date) + "\n" + (json.Metadata.Draft.Author.name) + "\n" + (json.Metadata.Draft.Author.industry) + "\n" + (json.Metadata.Draft.Author.title) + "\n" + (json.Metadata.Draft.Author.contact) + "\n");
 if (json.Metadata.Review.date) {
-  document.write(".sp 2\n" + (json.Metadata.UID) + "\nCongruent Review\n" + (json.Metadata.Review.date) + "\n" + (json.Metadata.Review.Author.name) + "\n" + (json.Metadata.Review.Author.industry) + "\n" + (json.Metadata.Review.Author.title) + "\n" + (json.Metadata.Review.Author.contact) + "\n\n");
+  document.write(".fi\n.sp 2\n.ti 2\nREVIEW\n.sp\n.nf\n" + (json.Metadata.UID) + "\nCongruent Review\n" + (json.Metadata.Review.date) + "\n" + (json.Metadata.Review.Author.name) + "\n" + (json.Metadata.Review.Author.industry) + "\n" + (json.Metadata.Review.Author.title) + "\n" + (json.Metadata.Review.Author.contact) + "\n\n");
 }
 if (json.Metadata.Congruent.date) {
-  document.write(".sp 2\n" + (json.Metadata.UID) + "\nCongruent\n" + (json.Metadata.Congruent.date) + "\n" + (json.Metadata.Congruent.Author.name) + "\n" + (json.Metadata.Congruent.Author.industry) + "\n" + (json.Metadata.Congruent.Author.title) + "\n" + (json.Metadata.Congruent.Author.contact) + "\n\n\n");
+  document.write(".fi\n.sp 2\n.ti 2\nCONGRUENT\n.sp\n.nf\n" + (json.Metadata.UID) + "\nCongruent\n" + (json.Metadata.Congruent.date) + "\n" + (json.Metadata.Congruent.Author.name) + "\n" + (json.Metadata.Congruent.Author.industry) + "\n" + (json.Metadata.Congruent.Author.title) + "\n" + (json.Metadata.Congruent.Author.contact) + "\n\n\n");
 } else {
 }
 document.write(".fi</textarea>");
