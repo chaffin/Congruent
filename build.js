@@ -113,9 +113,9 @@ document.write("<hr style=\"height: 16px;border: 0;box-shadow: inset 0 16px 16px
 document.write("<textarea rows=\"24\" cols=\"120\" wrap=\"soft\">");
 //  metadata
     document.write("<!DOCTYPE html>\n<html>\n<head>\n<title>" + (json.Metadata.topic) + "</title>\n<meta name=\"UID\" content=\"" + (json.Metadata.UID) + "\">\n<meta name=\"topic\" content=\"" + (json.Metadata.topic) + "\">\n<meta name=\"category\" content=\"" + (json.Metadata.category) + "\">\n<meta name=\"description\" content=\"" + (json.Metadata.description) + "\">\n<meta name=\"keywords\" content=\"" + (json.Metadata.keywords) + "\">\n<meta name=\"author\" content=\"" + (json.Metadata.Draft.Author.name) + "\">\n<meta name=\"reviewer\" content=\"" + (json.Metadata.Review.Author.name) + "\">\n<meta name=\"review-date\" content=\"" + (json.Metadata.Review.date) + "\">\n<meta name=\"congruent\" content=\"" + (json.Metadata.Congruent.Author.name) + "\">\n<meta name=\"congruent-date\" content=\"" + (json.Metadata.Congruent.date) + "\">\n<meta name=\"status\" content=\"" + (json.Metadata.status) + "\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
-    document.write("<style>@media all and (min-width:1088px){body{max-width:48em}}body{font-family:Waree,Calibri;font-size:1.125em;line-height:1.5em}.head{font-weight:700}.jar::before{content:\"\\2261\";margin-right:6px;color:tomato}.jar{text-align:right;font-weight:700}div.references{border-top:1px dashed #333}.ref{text-indent:-2rem}a:link,a:visited{text-decoration:none;color:#333}a:hover{background-color:#eee;border-radius:4px}.col0{margin-left:0}.col1{margin-left:3rem}.col2{margin-left:6rem}.col3{margin-left:9rem}.col4{margin-left:12rem}.col5{text-align:justify;margin-left:6rem;margin-right:3rem}.col6{text-align:center}.col7{margin-left:21rem;margin-right:0}.col8{text-align:right;margin-right:0}[class*='col-']{float:left;line-height:initial}.col-1-1{width:100%}.col-3-4{width:75%}.col-1-2{width:50%;min-width:350px}.col-1-4{width:25%}.grid:after{content:\"\";display:table;clear:both}*,*:after,*:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}[class*='col-']{padding-right:20px}[class*='col-']:last-of-type{padding-right:0}.grid-pad \> [class*='col-']:last-of-type{padding-right:20px}.cong::before{content:\"\\2245\";margin-right:6px;color:tomato}</style>\n</head>\n<body>\n");
+    document.write("<script src=\"http://code.jquery.com/jquery-1.12.2.min.js\"></script>\n<style>@media all and (min-width:1088px){body{max-width:48em}}body{font-family:Waree,Calibri;font-size:1.125em;line-height:1.5em}.head{font-weight:700}.jar::before{content:\"\\2261\";margin-right:6px;color:tomato}.jar{text-align:right;color:#222;font-size:80%}.jargon{font-size:90%}div.references{border-top:1px dashed #333}.ref{text-indent:-2rem}a:link,a:visited{text-decoration:none;color:#333}a:hover{background-color:#eee;border-radius:4px}.col0{margin-left:0}.col1{margin-left:3rem}.col2{margin-left:6rem}.col3{margin-left:9rem}.col4{margin-left:12rem}.col5{text-align:justify;margin-left:6rem;margin-right:3rem}.col6{text-align:center}.col7{margin-left:21rem;margin-right:0}.col8{text-align:right;margin-right:0}[class*='col-']{float:left;line-height:initial}.col-1-1{width:100%}.col-3-4{width:85%}.col-1-2{width:50%}.col-1-4{width:15%}.grid:after{content:\"\";display:table;clear:both}*,*:after,*:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}[class*='col-']{padding-right:20px}[class*='col-']:last-of-type{padding-right:0}.grid-pad \> [class*='col-']:last-of-type{padding-right:20px}.cong::before{content:\"\\2245\";margin-right:6px;color:tomato}</style>\n<script>\n$(document).ready(function() {\n\t$(\".jar-gon\").slideUp(0);\n\t$(\".rule\").click(function() {\n\t\t$(this).next(\".jar-gon\").slideToggle(\"slow\");\n\t\t});\n\t$(\".jargon\").click(function() {\n\t\t$(\".intent\").slideDown();\n\t});\n\t$(\".jar\").click(function() {\n\t$(\".intent\").slideUp();\n\t});\n});\n</script>\n</head>\n<body>\n");
 // heading
-document.write("<div class=\"grid grid-pad\">\n<div class=\"col-3-4\">" + (json.Metadata.version) + "</div>\n<div class=\"col-1-4 col8 cong\">" + (json.Metadata.status) + "</div>\n<div class=\"col-3-4\">" + (json.Metadata.UID) + "</div>\n<div class=\"col-1-4 col8\">" + (json.Metadata.Draft.date) + "</div>\n</div>\n");
+document.write("<div class=\"grid grid-pad\">\n<div class=\"col-1-2\">" + (json.Metadata.version) + "</div>\n<div class=\"col-1-2 col8 cong\">" + (json.Metadata.status) + "</div>\n<div class=\"col-1-2\">" + (json.Metadata.UID) + "</div>\n<div class=\"col-1-2 col8\">" + (json.Metadata.Draft.date) + "</div>\n</div>\n");
 document.write("<p class=\"col6 head\">" + (json.Metadata.topic) + "</p>");
 // abstract
   document.write("<p class=\"col0 head\">Abstract</p>\n");
@@ -142,14 +142,14 @@ for (i in json.Article) {
     }
 // jargon and notes
 if (json.Article[i].rule) {
- document.write("<p class=\"col1 para\">" + (json.Article[i].rule) + "</p>\n");
- document.write("<div class=\"col-1-4 jar\">Jargon</div>\n<div class=\"col-3-4 jargon\">" + (json.Article[i].jargon));
+ document.write("<p class=\"col1 para rule\">" + (json.Article[i].rule) + "</p>\n");
+ document.write("<div class=\"jar-gon\">\n<div class=\"col-1-4 jar\">Jargon</div>\n<div class=\"col-3-4 jargon\">" + (json.Article[i].jargon));
   if (json.Article[i].note) {
    var x = y + 1;
    document.write("<sup><a id=\"" + (x) + "\" href=\"#id" + (x) + "\">" + (x) + "</a></sup>");
    var y = x;
   }
-  document.write("</p>\n</div>\n");
+  document.write("</p>\n</div>\n</div>\n");
  }
 }
 // disclaimer
